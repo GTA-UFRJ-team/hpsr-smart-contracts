@@ -63,7 +63,7 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
 	} else if function == "getPendingInstructionTransaction" { //get pending instruction transaction
 		return t.getPendingInstructionTransaction(stub, args)
 	} else if function == "getHistoryForContract" { //get history of values for a transaction
-		return t.getHistoryForContract(stub, args)
+		return t.getHistoryForTransaction(stub, args)
 	}
 
 	fmt.Println("invoke did not find func: " + function) //error
@@ -178,7 +178,7 @@ func (t *SimpleChaincode) initResponseTransaction(stub shim.ChaincodeStubInterfa
 }
 
 
-func (t *SimpleChaincode) getHistoryForContract(stub shim.ChaincodeStubInterface, args []string) pb.Response {
+func (t *SimpleChaincode) getHistoryForTransaction(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 
 	if len(args) < 1 {
 		return shim.Error("Incorrect number of arguments. Expecting 1")
