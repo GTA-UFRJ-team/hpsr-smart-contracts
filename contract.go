@@ -62,7 +62,7 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
 		return t.initResponseTransaction(stub, args)
 	} else if function == "getPendingInstructionTransaction" { //get pending instruction transaction
 		return t.getPendingInstructionTransaction(stub, args)
-	} else if function == "getHistoryForContract" { //get history of values for a transaction
+	} else if function == "getHistoryForTransaction" { //get history of values for a transaction
 		return t.getHistoryForTransaction(stub, args)
 	}
 
